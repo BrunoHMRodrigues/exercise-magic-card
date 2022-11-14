@@ -1,5 +1,5 @@
-// const { saveFavoriteMagicCard } = require('../magic');
-// const favoriteCards = require('../data/favoriteCards');
+const { saveFavoriteMagicCard } = require('../magic');
+const favoriteCards = require('../data/favoriteCards');
 
 const restoreFavoriteCards = () => {
   // implemente seu código aqui
@@ -11,9 +11,11 @@ describe('3 - Testes da função saveFavoriteMagicCard', () => {
   afterEach(restoreFavoriteCards);
 
   it('3.1 Testa se um novo card é adicionado a cada execução', async () => {
-    // await saveFavoriteMagicCard('130553');
-    // implemente seus testes aqui
-
+    await saveFavoriteMagicCard('130553');
+    expect(favoriteCards.length).toBe(5);
+    expect(favoriteCards[4].name).toBe('Beacon of Immortality');
+    await saveFavoriteMagicCard('130554');
+    expect(favoriteCards.length).toBe(6);
   });
 
   it('3.2 Deve retornar favoriteCards contendo apenas os cards favoritos iniciais', () => {
