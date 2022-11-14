@@ -5,6 +5,7 @@ const fetchCardById = (cardId) => fetch(`https://api.magicthegathering.io/v1/car
 
 const getMagicCard = async (cardId) => {
   const response = await fetchCardById(cardId);
+  console.log(response);
   const data = await response.json();
 
   const { name, manaCost, types, subtypes, rarity } = data.card;
